@@ -122,8 +122,19 @@ export function Hero() {
             <MagneticButton href="#work">
               Explore My Work <ArrowUpRight className="h-4 w-4" />
             </MagneticButton>
-            <MagneticButton href="#" variant="ghost">
-              <Download className="h-4 w-4" /> Download Resume
+            <MagneticButton
+              variant="ghost"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/Ahmad_Ismail_Resume.pdf";
+                link.setAttribute("download", "Ahmad_Ismail_Resume.pdf");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              <Download className="h-4 w-4" />
+              Download Resume
             </MagneticButton>
             <MagneticButton href="#contact" variant="ghost">
               <Mail className="h-4 w-4" /> Contact Me
@@ -138,8 +149,14 @@ export function Hero() {
           >
             {[
               { Icon: Github, href: "https://github.com/Ahmadkhaan08" },
-              { Icon: Linkedin, href: "https://www.linkedin.com/in/mr-ahmad-ismail-b77664288/" },
-              { Icon: SiLeetcode, href: "https://leetcode.com/u/M_Ahmad_Khan/" },
+              {
+                Icon: Linkedin,
+                href: "https://www.linkedin.com/in/mr-ahmad-ismail-b77664288/",
+              },
+              {
+                Icon: SiLeetcode,
+                href: "https://leetcode.com/u/M_Ahmad_Khan/",
+              },
               { Icon: Twitter, href: "https://twitter.com/ahmadismail" },
               { Icon: Mail, href: "mailto:mrahmadismail13@gmail.com" },
             ].map(({ Icon, href }, i) => (
